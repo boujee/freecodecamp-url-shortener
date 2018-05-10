@@ -40,4 +40,7 @@ describe('api', () => {
           .expect('Location', url)
       );
   });
+  test('I receive an error on entries that are nonexistent', () =>
+    request(api()).get('/3').expect(200, {error: 'url does not exist in database'})
+  );
 });
